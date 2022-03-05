@@ -11,13 +11,13 @@ response = requests.request("GET", url, headers=headers)
 cur_data = json.loads(response.text)
 
 def CheckDown() :
-    print(datetime.datetime.now())
-    for data in cur_data:
-        print(data)
-        if data['opening_price'] < data['trade_price']:
-            print(f'opening : {data["opening_price"]}, > closing : {data["trade_price"]}')
-            return
-    print('find down position!!')
+    # print(datetime.datetime.now())
+    # for data in cur_data:
+    #     print(data)
+    #     if data['opening_price'] < data['trade_price']:
+    #         print(f'opening : {data["opening_price"]}, > closing : {data["trade_price"]}')
+    #         return
+    # print('find down position!!')
     slack_dir.SendMessage.post_message('find down position!!')
 
 
